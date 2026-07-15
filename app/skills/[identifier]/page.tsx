@@ -1,13 +1,20 @@
-import { SKILLS } from "../SKILLS";
+'use client'
+import { useParams } from "next/navigation";
+import { Skill, SKILLS } from "../SKILLS";
+import { useEffect, useState } from "react";
 
-type SkillPageProps = {
-    params: { identifier: string };
-};
+export default function SkillPage() {
+    const params = useParams<{ identifier: string }>();
+    const [skills, setSkills] = useState(SKILLS)
+    const [skill, setSkill] = useState<Skill | null>(null)
+    useEffect(() => {
+        const foundSkill = skills.find(skill => skill.id === Number(params.identifier))
+        if (foundSkill) {
+            setSkill(foundSkill)
+        }
+    }, [params])
 
-export default async function SkillPage({ params }: SkillPageProps) {
-    const { identifier } = await params;
-
-    const skill = SKILLS.find((skill) => skill.id === Number(identifier));
+    console.log('skills details page. skill found ', skill)
     return (
         <div>
             {
