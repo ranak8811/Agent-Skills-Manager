@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Project specific files
 Explanations/*
+
+# Prisma related files
+prisma/migrations/*
