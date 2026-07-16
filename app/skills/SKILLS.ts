@@ -51,6 +51,8 @@ export let SKILLS: Skill[] = [
 ]
 
 export async function getSkills() {
+    // throw new Error('Externm API xyx not available')
+
     return [...SKILLS]
 }
 

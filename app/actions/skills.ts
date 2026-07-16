@@ -11,6 +11,7 @@ export async function createSkill(prevState: any, formData: FormData) {
     const category = formData.get("category") as string;
 
     if (!name || !description || !category) {
+        // throw new Error('Externm API xyx not available')
         return { message: "Please fill in all fields" };
     }
 
