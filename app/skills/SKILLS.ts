@@ -1,5 +1,5 @@
 export type Skill = {
-    id: number;
+    id: string;
     name: string;
     category: string;
     description: string;
@@ -9,7 +9,7 @@ export type Skill = {
 
 export let SKILLS: Skill[] = [
     {
-        id: 1,
+        id: "1",
         name: "Web Development",
         category: "Technical",
         description: "Development of websites and web applications.",
@@ -17,7 +17,7 @@ export let SKILLS: Skill[] = [
         updatedAt: "2022-01-01",
     },
     {
-        id: 2,
+        id: "2",
         name: "Mobile Development",
         category: "Technical",
         description: "Development of mobile applications.",
@@ -25,7 +25,7 @@ export let SKILLS: Skill[] = [
         updatedAt: "2022-01-01",
     },
     {
-        id: 3,
+        id: "3",
         name: "UI/UX Design",
         category: "Design",
         description: "Design of user interfaces and user experiences.",
@@ -33,7 +33,7 @@ export let SKILLS: Skill[] = [
         updatedAt: "2022-01-01",
     },
     {
-        id: 4,
+        id: "4",
         name: "Data Science",
         category: "Data",
         description: "Analysis and interpretation of data.",
@@ -41,7 +41,7 @@ export let SKILLS: Skill[] = [
         updatedAt: "2022-01-01",
     },
     {
-        id: 5,
+        id: "5",
         name: "Machine Learning",
         category: "AI",
         description: "Development of machine learning models.",
@@ -54,7 +54,9 @@ export async function getSkills() {
     return [...SKILLS]
 }
 
-export function addSkill(skill: Skill) {
+export async function addSkill(skill: Skill) {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     SKILLS = [...SKILLS, skill]
     console.log('Skills updated in store ', SKILLS)
+    return getSkills()
 }

@@ -15,7 +15,7 @@ export async function createSkill(prevState: any, formData: FormData) {
     }
 
     const newSkill = {
-        id: Date.now(),
+        id: Date.now().toString(),
         name,
         description,
         category,
@@ -23,7 +23,7 @@ export async function createSkill(prevState: any, formData: FormData) {
         updatedAt: new Date().toISOString(),
     };
 
-    addSkill(newSkill);
+    await addSkill(newSkill);
     revalidatePath("/skills");
     redirect("/skills");
 }
