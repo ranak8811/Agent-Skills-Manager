@@ -21,13 +21,13 @@ export default async function SkillPage({ params }: SkillPageProps) {
         <div>
             {
                 skill ? (
-                    <>
+                    <div className="p-4 form flex flex-col gap-4 max-w-md mx-auto">
                         <h1>Skill: {skill?.name}</h1>
                         <p>Description: {skill?.description}</p>
                         <p>Category: {skill?.category}</p>
                         <p>Created At: {skill?.createdAt}</p>
                         <p>Updated At: {skill?.updatedAt}</p>
-                    </>
+                    </div>
                 ) : (
                     <h1>Skill not found</h1>
                 )

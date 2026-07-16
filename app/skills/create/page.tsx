@@ -11,14 +11,14 @@ export default function NewSkillPage() {
   const [state, formAction, pending] = useActionState(createSkill, initialState);
 
   return (
-    <form action={formAction}>
-      <input name="name" className="input input-bordered w-full" />
-      <textarea name="description" rows={3} className="input input-bordered w-full" />
-      <input name="category" className="input input-bordered w-full" />
+    <form action={formAction} className="p-4 form flex flex-col gap-4 max-w-md mx-auto">
+      <input placeholder="Skill name" name="name" className="input input-bordered w-full" />
+      <textarea placeholder="Skill description" name="description" rows={3} className="input input-bordered w-full" />
+      <input placeholder="Skill category" name="category" className="input input-bordered w-full" />
 
       <p aria-live="polite" className="text-red-500">{state?.message}</p>
 
-      <button disabled={pending}>
+      <button className="btn " disabled={pending}>
         {pending ? "Creating..." : "Create Skill"}
       </button>
     </form>
