@@ -53,11 +53,15 @@ export let SKILLS: Skill[] = [
 export async function getSkills() {
     // throw new Error('Externm API xyx not available')
 
+    await new Promise((resolve) => {
+        setTimeout(() => { resolve(null) }, 3000);
+    });
+
     return [...SKILLS]
 }
 
 export async function addSkill(skill: Skill) {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     SKILLS = [...SKILLS, skill]
     console.log('Skills updated in store ', SKILLS)
     return getSkills()
